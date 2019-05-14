@@ -10,13 +10,13 @@ public class Player implements Comparable<Player> {
 
 	private String name;
 	private float grade;
-	private int position;
+	private Integer position;
 	private boolean showPosition = false;
 
-	public static int ATTACK = 1;
+	public static int GOALKEEPER = 1;
 	public static int DEFENSE = 2;
-	public static int GOALKEEPER = 3;
-	public static int MIDFIELD = 4;
+	public static int MIDFIELD = 3;
+	public static int ATTACK = 4;
 
 	public Player() {
 		// TODO Auto-generated constructor stub
@@ -83,6 +83,10 @@ public class Player implements Comparable<Player> {
 		if (this.position == Player.DEFENSE) {
 			ret = "(D)";
 		}
+		
+		if (this.position == Player.MIDFIELD) {
+			ret = "(M)";
+		}
 
 		if (this.position == Player.GOALKEEPER) {
 			ret = "(G)";
@@ -92,7 +96,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int compareTo(Player p) {
-		return this.name.compareTo(p.name);
+		return this.position.toString().compareTo(p.position.toString());
 	}
 
 }
